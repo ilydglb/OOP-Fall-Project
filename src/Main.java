@@ -47,24 +47,28 @@ public class Main {
         UndergradCourse co2=new UndergradCourse("Physics",105,6);
 
         List <UndergradCourse> std1courses=new ArrayList<>();
+       // List <UndergradCourse> std2courses=new ArrayList<>();
         std1courses.add(co1);
         std1courses.add(co2);
+      //  std2courses.add(co2);
 
         std1.setCourses(std1courses);
+      //  std2.setCourses(std2courses);
+
         std1.GradeAdjustment(std1courses,std1);
         System.out.println(std1.getGrades());
 
-
+        Secretary sec1=new Secretary(123,"secretary","9-17");
         Lecturer lec1=new Lecturer("Uraz Yavanoglu",1111);
-        List <UndergradCourse> lec1courses=new ArrayList<>();
 
-        lec1courses.add(co1);
-        co1.setLecturer(lec1);
 
-        lec1courses.add(co2);
+
+        sec1.appointLecToCourse(lec1,co1);
+
+        lec1.UndergradCoursesData().add(co2);
         co2.setLecturer(lec1);
 
-        lec1.setUndergradCourses(lec1courses);
+        lec1.setUndergradCourses(lec1.UndergradCoursesData());
 
         Lecturer lec2=new Lecturer("dsfsd Ysdsf",1112);
         co1.addNotes(lec1,"sdklfmdskfmsdfsdf");
@@ -72,6 +76,12 @@ public class Main {
 
         LecturerOffice lecOf2= new LecturerOffice(lec2,45); //office has a lecturer but lecturer doesn't have an office
         lec2.setLecturerOffice(lecOf2);
+
+        std2.getStudentCourses();
+        std1.getStudentCourses();
+
+
+
 
 
     }

@@ -1,14 +1,8 @@
 public class DoctoralStudent extends GradStudent{
     DoctoralStudent(String name_surname,long id,int year)
     {
-        this.name_surname=name_surname;
-        this.id=id;
-        this.year=year;
-
+        super(name_surname, id, year);
     }
 
-    @Override
-    public void calculateGPA() {
 
-    }
 }

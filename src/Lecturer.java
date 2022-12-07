@@ -13,7 +13,8 @@ public class Lecturer {
     {
         name_surname=ns;
         this.id=id;
-
+        ugcourses=new ArrayList<>();
+        gcourses=new ArrayList<>();
     }
 
     public List<UndergradCourse> UndergradCoursesData()

@@ -5,10 +5,20 @@ public abstract class Student {
     protected String name_surname;
     protected int year;
 
+
     protected float GPA=0;
 
+    Student(String name,long id,int year)
+    {
+        this.name_surname=name;
+        this.id=id;
+        this.year=year;
+    }
 
-
+    public String toString()
+    {
+        return "name surname: "+ name_surname + " id: " + id;
+    }
     public String getName_Surname(){
         return this.name_surname;
     }
@@ -22,16 +32,16 @@ public abstract class Student {
     }
     //There are no set methods because students' information cannot be edited.
 
+
+    public abstract void getStudentCourses();
     HashMap<String, String> grademap = new HashMap<>();  //String for grade
-    public void setGrade(String c,String grade){
-        grademap.put(c,grade);
+    public void setGrade(String course,String grade){
+        grademap.put(course,grade);
     }
     public HashMap getGrades(){
         return grademap;
     }
 
-
-    //Buranin altini sonradan abstract yapip undergrada ayri yazabilirim, simdilik kalsin
 
     public double CalculateWeight(int credit, String grade){
         double n=0.0;

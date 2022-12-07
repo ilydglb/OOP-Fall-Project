@@ -3,10 +3,10 @@ public class UndergradStudent extends Student {
     List <UndergradCourse> courses;
     UndergradStudent(String name,long id,int year)
     {
-        this.name_surname=name;
-        this.id=id;
-        this.year=year;
+        super(name, id, year);
     }
+
+
 
     public List<UndergradCourse> coursesData()
     {
@@ -15,5 +15,23 @@ public class UndergradStudent extends Student {
     public void setCourses(List<UndergradCourse> s) {
         this.courses =s;
     }
+
+    @Override
+    public void getStudentCourses(){
+        List <UndergradCourse> c = this.coursesData();
+        System.out.println("Student:");
+        System.out.println(this);     //System.out.println(this.toString());
+        if(c!=null){
+            System.out.println("Courses taken this semester:");
+            for(UndergradCourse stdcourse : c)
+            {
+                System.out.println( stdcourse.getName() );
+            }}
+        else
+            System.out.println("This student does not have a course saved in the system.");
+
+    }
+
+
 
 }
