@@ -5,19 +5,15 @@ public class Lecturer {
     private List <GradCourse> gcourses;
     private List <UndergradCourse> ugcourses;
 
-<<<<<<< HEAD
-=======
+
     private LecturerOffice office;
 
->>>>>>> e6c69d3 (Initial commit)
+
     Lecturer(String ns,long id)
     {
         name_surname=ns;
         this.id=id;
-<<<<<<< HEAD
-=======
-        //setOffice(this);
->>>>>>> e6c69d3 (Initial commit)
+
     }
 
     public List<UndergradCourse> UndergradCoursesData()
@@ -48,10 +44,7 @@ public class Lecturer {
             System.out.println("This lecturer accessed to max course number.");
 
         this.gcourses =c;
-<<<<<<< HEAD
-=======
 
->>>>>>> e6c69d3 (Initial commit)
     }
 
     public List<UndergradCourse> UndgradCourseData()
@@ -78,11 +71,10 @@ public class Lecturer {
 
         return numofcourses;
     }
-<<<<<<< HEAD
-=======
+
 
     public void setLecturerOffice(LecturerOffice lecof){
         this.office=lecof;
     }
->>>>>>> e6c69d3 (Initial commit)
+
 }
