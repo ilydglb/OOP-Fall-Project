@@ -70,9 +70,11 @@ public static void main(String[] args)
     co1.addNotes(lec1,"sdklfmdskfmsdfsdf");
     co1.addNotes(lec2,"sdklfmdskfmsdfsdf");
 
+<<<<<<< HEAD
+=======
     LecturerOffice lecOf2= new LecturerOffice(lec2,45); //office has a lecturer but lecturer doesn't have an office
     lec2.setLecturerOffice(lecOf2);
 
-
+>>>>>>> e6c69d3 (Initial commit)
 }
 }
