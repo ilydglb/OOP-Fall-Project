@@ -5,10 +5,15 @@ public class Lecturer {
     private List <GradCourse> gcourses;
     private List <UndergradCourse> ugcourses;
 
+
+    private LecturerOffice office;
+
+
     Lecturer(String ns,long id)
     {
         name_surname=ns;
         this.id=id;
+
     }
 
     public List<UndergradCourse> UndergradCoursesData()
@@ -39,6 +44,7 @@ public class Lecturer {
             System.out.println("This lecturer accessed to max course number.");
 
         this.gcourses =c;
+
     }
 
     public List<UndergradCourse> UndgradCourseData()
@@ -65,4 +71,10 @@ public class Lecturer {
 
         return numofcourses;
     }
+
+
+    public void setLecturerOffice(LecturerOffice lecof){
+        this.office=lecof;
+    }
+
 }

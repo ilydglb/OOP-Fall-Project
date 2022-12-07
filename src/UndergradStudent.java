@@ -16,11 +16,4 @@ public class UndergradStudent extends Student {
         this.courses =s;
     }
 
-
-
-
-
-
-
-
 }

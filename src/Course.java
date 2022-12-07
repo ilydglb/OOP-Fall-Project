@@ -1,10 +1,21 @@
 public abstract class Course {
-    protected  String name;
+
+
+
+
+    private  String name;
     protected long course_code;
     protected int credit;
-    protected Area location;
+    protected Classroom  location;
     protected Lecturer lecturer;
     protected String notes;
+
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getName(){
+        return this.name;
+    }
 
     public void setLecturer(Lecturer lecturer)
     {
@@ -15,9 +26,17 @@ public abstract class Course {
     public void addNotes(Lecturer lec, String note){
         if(lec==lecturer)
             this.notes=note;
-         else
+        else
             System.out.println("This instructor is not the lecturer of this course.");
-}
+
+    }
+
+
+
+    public void setLocation(Classroom loc){
+        this.location=loc;
+    }
+
 
 
 

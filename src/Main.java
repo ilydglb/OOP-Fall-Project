@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Main {
-public static void main(String[] args)
-{
+    public static void main(String[] args)
+    {
    /* int inp, inp2, inp3;
     Student[] arrStd=new Student[100];
     Lecturer[] arrLec=new Lecturer[20];
@@ -41,34 +41,38 @@ public static void main(String[] args)
         }
     }while(inp!=6);*/
 
-    UndergradStudent std1 = new UndergradStudent("ilayda golbasi", 201180026, 2);
-    UndergradStudent std2 = new UndergradStudent("mina unal", 201180042, 2);
-    UndergradCourse co1=new UndergradCourse("Math",101,6);
-    UndergradCourse co2=new UndergradCourse("Physics",105,6);
+        UndergradStudent std1 = new UndergradStudent("ilayda golbasi", 201180026, 2);
+        UndergradStudent std2 = new UndergradStudent("mina unal", 201180042, 2);
+        UndergradCourse co1=new UndergradCourse("Math",101,6);
+        UndergradCourse co2=new UndergradCourse("Physics",105,6);
 
-    List <UndergradCourse> std1courses=new ArrayList<>();
-    std1courses.add(co1);
-    std1courses.add(co2);
+        List <UndergradCourse> std1courses=new ArrayList<>();
+        std1courses.add(co1);
+        std1courses.add(co2);
 
-    std1.setCourses(std1courses);
-    std1.GradeAdjustment(std1courses,std1);
-    System.out.println(std1.getGrades());
+        std1.setCourses(std1courses);
+        std1.GradeAdjustment(std1courses,std1);
+        System.out.println(std1.getGrades());
 
 
-    Lecturer lec1=new Lecturer("Uraz Yavanoglu",1111);
-    List <UndergradCourse> lec1courses=new ArrayList<>();
+        Lecturer lec1=new Lecturer("Uraz Yavanoglu",1111);
+        List <UndergradCourse> lec1courses=new ArrayList<>();
 
-    lec1courses.add(co1);
-    co1.setLecturer(lec1);
+        lec1courses.add(co1);
+        co1.setLecturer(lec1);
 
-    lec1courses.add(co2);
-    co2.setLecturer(lec1);
+        lec1courses.add(co2);
+        co2.setLecturer(lec1);
 
-    lec1.setUndergradCourses(lec1courses);
+        lec1.setUndergradCourses(lec1courses);
 
-    Lecturer lec2=new Lecturer("dsfsd Ysdsf",1112);
-    co1.addNotes(lec1,"sdklfmdskfmsdfsdf");
-    co1.addNotes(lec2,"sdklfmdskfmsdfsdf");
+        Lecturer lec2=new Lecturer("dsfsd Ysdsf",1112);
+        co1.addNotes(lec1,"sdklfmdskfmsdfsdf");
+        co1.addNotes(lec2,"sdklfmdskfmsdfsdf");
 
-}
+        LecturerOffice lecOf2= new LecturerOffice(lec2,45); //office has a lecturer but lecturer doesn't have an office
+        lec2.setLecturerOffice(lecOf2);
+
+
+    }
 }

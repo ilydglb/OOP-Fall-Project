@@ -1,9 +1,14 @@
 public class DoctoralStudent extends GradStudent{
-   /* DoctoralStudent(String name_surname,long id,int year)  //When each student registers through the system, it is obligatory to enter name_surname, id number and year information.
+    DoctoralStudent(String name_surname,long id,int year)
     {
         this.name_surname=name_surname;
         this.id=id;
         this.year=year;
 
-    }*/
+    }
+
+    @Override
+    public void calculateGPA() {
+
+    }
 }

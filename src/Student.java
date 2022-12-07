@@ -12,9 +12,11 @@ public abstract class Student {
     public String getName_Surname(){
         return this.name_surname;
     }
+    //public void setName_Surname(String ns){this.name_surname=ns;} //name_surname private yapılırsa
     public int getYear(){
         return this.year;
     }
+    public void setYear(String ns){this.name_surname=ns;}
     public long getID(){
         return this.id;
     }
@@ -28,28 +30,31 @@ public abstract class Student {
         return grademap;
     }
 
+
+    //Buranin altini sonradan abstract yapip undergrada ayri yazabilirim, simdilik kalsin
+
     public double CalculateWeight(int credit, String grade){
         double n=0.0;
-       
-           if(grade.equals("AA"))
-               n=4.0*credit;
-           if(grade.equals("BA"))
-               n=3.5*credit;
-            if(grade.equals("BB"))
-                n=3.0*credit;
-            if(grade.equals("CB"))
-                n=2.5*credit;
-            if(grade.equals("CC"))
-                n=2.0*credit;
-            if(grade.equals("DC"))
-                n=1.5*credit;
-            if(grade.equals("DD"))
-                n=1.0*credit;
-            if(grade.equals("FD"))
-                n=0.5*credit;
-            if(grade.equals("FF"))
-                n=0.0*credit;
-        
+
+        if(grade.equals("AA"))
+            n=4.0*credit;
+        if(grade.equals("BA"))
+            n=3.5*credit;
+        if(grade.equals("BB"))
+            n=3.0*credit;
+        if(grade.equals("CB"))
+            n=2.5*credit;
+        if(grade.equals("CC"))
+            n=2.0*credit;
+        if(grade.equals("DC"))
+            n=1.5*credit;
+        if(grade.equals("DD"))
+            n=1.0*credit;
+        if(grade.equals("FD"))
+            n=0.5*credit;
+        if(grade.equals("FF"))
+            n=0.0*credit;
+
         return n;
     }
 
@@ -57,11 +62,11 @@ public abstract class Student {
         int totalcredit=0;
         double weight=0.0;
         for(Course c : stdcourses){
-            System.out.printf("Enter grade for %s: ",c.name);
+            System.out.printf("Enter grade for %s: ",c.getName());
             Scanner input = new Scanner(System.in);
             String grade = input.next();
 
-            std.setGrade(c.name,grade);
+            std.setGrade(c.getName(),grade);
 
             totalcredit+=c.credit;
             weight+=std.CalculateWeight(c.credit,grade);
@@ -69,16 +74,5 @@ public abstract class Student {
         double GPA=(weight/totalcredit);
         System.out.println(GPA);
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }
