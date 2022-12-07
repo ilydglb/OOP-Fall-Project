@@ -16,14 +16,4 @@ public class UndergradStudent extends Student {
         this.courses =s;
     }
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-=======
->>>>>>> e6c69d3 (Initial commit)
 }
