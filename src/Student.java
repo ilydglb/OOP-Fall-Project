@@ -12,17 +12,9 @@ public abstract class Student {
     public String getName_Surname(){
         return this.name_surname;
     }
-<<<<<<< HEAD
     public int getYear(){
         return this.year;
     }
-=======
-    //public void setName_Surname(String ns){this.name_surname=ns;} //name_surname private yapılırsa
-    public int getYear(){
-        return this.year;
-    }
-    public void setYear(String ns){this.name_surname=ns;}
->>>>>>> e6c69d3 (Initial commit)
     public long getID(){
         return this.id;
     }
@@ -36,12 +28,6 @@ public abstract class Student {
         return grademap;
     }
 
-<<<<<<< HEAD
-=======
-
-   //Buranin altini sonradan abstract yapip undergrada ayri yazabilirim, simdilik kalsin
-
->>>>>>> e6c69d3 (Initial commit)
     public double CalculateWeight(int credit, String grade){
         double n=0.0;
        
@@ -71,19 +57,11 @@ public abstract class Student {
         int totalcredit=0;
         double weight=0.0;
         for(Course c : stdcourses){
-<<<<<<< HEAD
             System.out.printf("Enter grade for %s: ",c.name);
             Scanner input = new Scanner(System.in);
             String grade = input.next();
 
             std.setGrade(c.name,grade);
-=======
-            System.out.printf("Enter grade for %s: ",c.getName());
-            Scanner input = new Scanner(System.in);
-            String grade = input.next();
-
-            std.setGrade(c.getName(),grade);
->>>>>>> e6c69d3 (Initial commit)
 
             totalcredit+=c.credit;
             weight+=std.CalculateWeight(c.credit,grade);
@@ -92,7 +70,6 @@ public abstract class Student {
         System.out.println(GPA);
     }
 
-<<<<<<< HEAD
 
 
 
@@ -104,6 +81,4 @@ public abstract class Student {
 
 
 
-=======
->>>>>>> e6c69d3 (Initial commit)
 }

@@ -16,7 +16,6 @@ public class UndergradStudent extends Student {
         this.courses =s;
     }
 
-<<<<<<< HEAD
 
 
 
@@ -24,6 +23,4 @@ public class UndergradStudent extends Student {
 
 
 
-=======
->>>>>>> e6c69d3 (Initial commit)
 }
