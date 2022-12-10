@@ -14,6 +14,7 @@ public class UndergradStudent extends Student {
     }
     public void setCourses(List<UndergradCourse> s) {
         this.courses =s;
+
     }
 
     @Override
@@ -26,10 +27,19 @@ public class UndergradStudent extends Student {
             for(UndergradCourse stdcourse : c)
             {
                 System.out.println( stdcourse.getName() );
-            }}
+            }
+        }
         else
             System.out.println("This student does not have a course saved in the system.");
+    }
+    @Override
+    public int countCourses()
+    {
+        int numofcourses = 0;
+        for(UndergradCourse course : courses)
+            numofcourses++;
 
+        return numofcourses;
     }
 
 

@@ -3,4 +3,5 @@ public class UndergradCourse extends Course {
     {
         super(name, course_code, credit);
     }
+
 }

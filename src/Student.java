@@ -5,8 +5,7 @@ public abstract class Student {
     protected String name_surname;
     protected int year;
 
-
-    protected float GPA=0;
+    public double GPA=0;
 
     Student(String name,long id,int year)
     {
@@ -34,7 +33,7 @@ public abstract class Student {
 
 
     public abstract void getStudentCourses();
-    HashMap<String, String> grademap = new HashMap<>();  //String for grade
+    private HashMap<String, String> grademap = new HashMap<>();
     public void setGrade(String course,String grade){
         grademap.put(course,grade);
     }
@@ -81,8 +80,12 @@ public abstract class Student {
             totalcredit+=c.credit;
             weight+=std.CalculateWeight(c.credit,grade);
         }
-        double GPA=(weight/totalcredit);
+         GPA=(weight/totalcredit);
         System.out.println(GPA);
     }
+public double getGPA(){
+        return this.GPA;
+}
+public abstract int countCourses();
 
 }

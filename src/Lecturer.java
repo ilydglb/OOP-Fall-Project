@@ -2,11 +2,40 @@ import java.util.*;
 public class Lecturer {
     private String name_surname;
     private long id;
-    private List <GradCourse> gcourses;
-    private List <UndergradCourse> ugcourses;
+    private List<GradCourse> gcourses;
+    private List<UndergradCourse> ugcourses;
 
 
     private LecturerOffice office;
+
+    public Lecturer headOfDepartment;
+
+    public void giveGraduationCertificate(Lecturer lec, Student std){
+try {
+    if (lec == headOfDepartment) {
+        if (std instanceof GradStudent) {
+            if (std instanceof MasterStudent) {
+                if (std.countCourses() >= 7 && std.getGPA() >= 2.5)
+                    System.out.println("Student can graduate.");
+            } else if (std instanceof DoctoralStudent) {
+                if (std.countCourses() >= 8 && std.getGPA() >= 3)
+                    System.out.println("Student can graduate.");
+            }
+        } else if (std instanceof UndergradStudent) {
+            if (std.countCourses() > 20 && std.getGPA() >= 2.00)
+                System.out.println("Student can graduate.");
+
+        }
+        System.out.println("Student can not graduate.");
+    }
+    System.out.println("This lecturer does not have the authority to give graduate certificate.");
+}
+catch(NullPointerException ex)  //Works if the student does not have any courses yet(so the courses are null and will be returned null and this will effect countCourses())
+{
+    System.out.println(ex.getMessage());
+}
+    }
+
 
 
     Lecturer(String ns,long id)
@@ -17,36 +46,10 @@ public class Lecturer {
         gcourses=new ArrayList<>();
     }
 
-    public List<UndergradCourse> UndergradCoursesData()
-    {
-        return ugcourses;
-    }
-    public void setGradCourses(List<GradCourse> c)
-    {
-        this.gcourses =c;
-    }
 
-    public List<GradCourse> GradCoursesData()
-    {
-        return gcourses;
-    }
-    public void setUndergradCourses(List<UndergradCourse> c)
-    {
-        this.ugcourses =c;
-    }
+    public List<GradCourse> GradCourseData(){ return gcourses;}
 
-    public List<GradCourse> GradCourseData()
-    {
-        return gcourses;
-    }
 
-    public void setGradCourse(List<GradCourse> c) {
-        if(countCourses()>9)
-            System.out.println("This lecturer accessed to max course number.");
-
-        this.gcourses =c;
-
-    }
 
     public List<UndergradCourse> UndgradCourseData()
     {
@@ -54,17 +57,11 @@ public class Lecturer {
     }
 
 
-    public void setUnderGradCourse(List<UndergradCourse> c) {
-        if(countCourses()>9)
-            System.out.println("This lecturer accessed to max course number.");
-
-        this.ugcourses =c;
-    }
 
     public int countCourses()
     {
         int numofcourses = 0;
-        for(GradCourse course : gcourses)
+        for(GradCourse course  : gcourses)
             numofcourses++;
 
         for(UndergradCourse course : ugcourses)

@@ -30,5 +30,15 @@ public abstract class GradStudent extends Student  {
             System.out.println("This student does not have a course saved in the system.");
     }
 
+    @Override
+    public int countCourses()
+    {
+        int numofcourses = 0;
+        for(GradCourse course : courses)
+            numofcourses++;
+
+        return numofcourses;
+    }
+
 
 }
