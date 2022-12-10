@@ -4,8 +4,6 @@ public class Lecturer {
     private long id;
     private List<GradCourse> gcourses;
     private List<UndergradCourse> ugcourses;
-
-
     private LecturerOffice office;
 
     public Lecturer headOfDepartment;
