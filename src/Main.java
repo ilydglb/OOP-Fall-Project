@@ -54,6 +54,8 @@ public class Main {
         DoctoralStudent std5 = new  DoctoralStudent("mina unal", 22222222, 2);
         //headOfDep.giveGraduationCertificate(headOfDep,std5);
 
+        Social sportshall =new Social();
+
 
     }
 }
