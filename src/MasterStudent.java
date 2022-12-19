@@ -3,6 +3,4 @@ public class MasterStudent extends GradStudent{
     {
         super(name_surname, id, year);
     }
-
-
 }

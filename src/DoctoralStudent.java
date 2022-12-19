@@ -3,6 +3,4 @@ public class DoctoralStudent extends GradStudent{
     {
         super(name_surname, id, year);
     }
-
-
 }

@@ -1,11 +1,12 @@
-import java.util.*;
 class Classroom extends Area{
-    private List <Course> courses;
     private int classNo;
-
-    Classroom(int classNo)
+    Classroom(String name,String openbetween,String usage,int classNo)
     {
-        this.classNo=classNo;
+        super(name,openbetween,usage);
+        setClassNo(classNo);
     }
 
+    public void setClassNo(int classNo) {this.classNo = classNo;}
+
+    public int getClassNo() {return classNo;}
 }
