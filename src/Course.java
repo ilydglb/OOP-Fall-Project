@@ -21,10 +21,6 @@ public abstract class Course {
         total_course_hour_in_aweek=hour;
     }
 
-    public long[] getidArr(){
-        return this.idArr;
-    }
-
 
     public void setName(String name){
         this.name=name;
@@ -32,39 +28,16 @@ public abstract class Course {
     public String getName(){
         return this.name;
     }
-
-    public void setCourse_code(long course_code) {
-        this.course_code = course_code;
-    }
-
-    public long getCourse_code() {
-        return course_code;
-    }
-
-    public void setCredit(int credit) {
-        this.credit = credit;
-    }
-
-    public int getCredit() {
-        return credit;
-    }
+    public void setCourse_code(long course_code) {this.course_code = course_code;}
+    public long getCourse_code() {return course_code;}
+    public void setCredit(int credit) {this.credit = credit;}
+    public int getCredit() {return credit;}
     public void setLocation(Classroom loc){
         this.location=loc;
     }   //setting course's location
-
-
-    public Classroom getLocation() {
-        return location;
-    }
-
-    public Lecturer getLecturer() {
-        return lecturer;
-    }
-
-    public void setLecturer(Lecturer lecturer) {
-        this.lecturer = lecturer;
-    }
-
+    public Classroom getLocation() {return location;}
+    public Lecturer getLecturer(){return lecturer;}
+    public void setLecturer(Lecturer lecturer) {this.lecturer = lecturer;}
     public void setCourseHour(int ch){
         total_course_hour_in_aweek=ch;
     }
@@ -72,13 +45,9 @@ public abstract class Course {
         return this.total_course_hour_in_aweek;
     }
 
-
-    public String getNotes() {
+    public String getNotes() {      //there is no regular set method for notes because adding a note has conditions
         return notes;
     }
-
-
-
 
     private int i=0;    //initial value of the idArr's index
 
@@ -101,6 +70,8 @@ public abstract class Course {
             System.out.println(element);
         }
     }
+
+    public long[] getidArr(){return this.idArr;}
 
     /*
      * Check if the lecturer trying to add a note is the lecturer
