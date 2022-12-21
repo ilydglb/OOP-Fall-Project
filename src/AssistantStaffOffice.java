@@ -1,11 +1,11 @@
 public class AssistantStaffOffice extends Area{
-    Staff staff;
-    AssistantStaffOffice(String name,String openbetween,String usage,Staff stff){
+    AssistantStaff staff;
+    AssistantStaffOffice(String name,String openbetween,String usage,AssistantStaff stff){
         super(name,openbetween,usage);
        setStaff(stff);
     }
 
-    public void setStaff(Staff staff) {
+    public void setStaff(AssistantStaff staff) {
         this.staff = staff;
     }
 

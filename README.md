@@ -2,22 +2,24 @@
 
 *You should check the main method inside Main class to understand the code better.*
 
-We set the Student class as abstract because we wanted to specify student types as grad or undergrad. 
-There are undergrad students and grad students of two types inheriting Student class, master students and doctoral students (so GradStudent is abstract too).
-Student class has attributes that was given in project's general information and has two lists storing societies the student is in and attendance info as extra.
+We set the Student class as abstract because we wanted to specify student types as graduate or undergraduate. 
+These two types inherit Student class and master students and doctoral students inherit GradStudent class (GradStudent is abstract too).
 We store grades of courses in Student class in a hashmap and calculate GPA.
-We don't add courses inside Student class because courses can be of two types, grad and undergrad. So we add them inside UnderGradStudent and GradStudent classes. (an under grad student cannot have a grad course and same for reverse)
-We have two abstract methods inside Student class and a method that calculates whether a student fails because lack of attendance or not.
+We don't add courses inside Student class because courses can be of two types, grad and undergrad. So we add them inside UnderGradStudent and GradStudent classes. (an undergraduate student cannot have a grad course and same for reverse)
+We have two abstract methods inside Student class for child classes to implement and a method that calculates whether a student fails because lack of attendance or not.
 
 We set the Course class as abstract because we wanted to specify course types as grad or undergrad.
 Inside Course class we have attributes that was given in project's general information and two other attributes that we use in some methods.
-There is an array of student ids (not a list because only students store the courses objects they are taking but courses don't store students objects -this information was given in project directives).
-We also have course notes and necessary conditions about adding a note here.
+There is an array of student ids (not a list because only students store the course objects they are taking but courses don't store students objects -this information was given in project directives-).
+We also have notes about the course and necessary conditions about adding a note here.
 
-Lecturer class has lists of classes UndergradCourse and GradCourse since a lecturer can give both.
+Lecturer class has two lists of classes UndergradCourse and GradCourse since a lecturer can give both.
 And for regular lecturers, isHeadOfDepartment variable is set to false by default. 
 There are two constructors, one is for creating the head of department, setting  isHeadOfDepartment to true.
 And if this variable is true this lecturer can give a graduate certificate which is inside the Lecturer class.
+
+Abstract Staff class has four inheritors. And Area class has three inheritors.
+Area class has a CleaningStaff variable that is responsible for cleaning the area.
 
 ## Extra attributes and methods:
 
