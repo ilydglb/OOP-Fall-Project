@@ -1,3 +1,4 @@
+import java.util.*;
 public abstract class Course {
     private  String name;
     private long course_code;
@@ -11,6 +12,7 @@ public abstract class Course {
      * This variable is useful when calculating whether a student fails because lack of attendance
      *  (this is done in Student class)
      */
+    private List<String> topics = new ArrayList<>();
 
 
     Course(String name,long course_code,int credit,int hour)  //When creating a course through the system, it will be created together with the course code, name, and credit information.
@@ -49,6 +51,22 @@ public abstract class Course {
         return notes;
     }
 
+    public List<String> getTopics() {return topics;}
+    protected void addToTopic(String topic, Lecturer lect){
+        if(lect == this.lecturer){
+            this.topics.add(topic);
+        }else{
+            System.out.println("This action cannot be performed by any other than this course's lecturer.");
+        }
+    }
+    protected void removeFromTopic(int idx, Lecturer lect){
+        if(lect == this.lecturer){
+            this.topics.remove(idx);
+        }else{
+            System.out.println("This action cannot be performed by any other than this course's lecturer.");
+        }
+    }
+
     private int i=0;    //initial value of the idArr's index
 
     public int getI() {
@@ -71,7 +89,7 @@ public abstract class Course {
         }
     }
 
-    public long[] getidArr(){return this.idArr;}
+    public long[] getidArr(){return this.idArr;}     //we set the id arr above
 
     /*
      * Check if the lecturer trying to add a note is the lecturer

@@ -5,12 +5,9 @@ public abstract class Student {
     private long id;
     private int year;
     private double GPA = 0.0;
-
-    private List <Society> societies = new ArrayList<>();
-
-    public List getsocieties(){
-        return this.societies;
-    }
+    private List <Society> societies = new ArrayList<>();   //Societies the student is a part of
+    private HashMap<String, String> grademap = new HashMap<>(); //   //Creating a hashmap to store course names and its grades together as key/value pairs
+    private HashMap<String, Integer> course_attendance = new HashMap<>();
 
 
     Student(String name,long id,int year)
@@ -29,25 +26,41 @@ public abstract class Student {
     public int getYear(){
         return this.year;
     }
+    public List getsocieties(){
+        return this.societies;
+    }
 
-    //There are no set methods because students' information cannot be edited.
+    //There are no set methods because students' basic information cannot be edited.
     public String toString()    //overriding toString method of class Object to get name_surname etc. instead of getting the hash code
+                                //we use this method when printing student info
     {
         return "name surname: "+ name_surname + " id: " + id;
     }
 
-
-    //Creating a hashmap to store courses and its grades together as key/value pairs
-    private HashMap<String, String> grademap = new HashMap<>();
     public void setGrade(Course course,String grade){
-        grademap.put(course.getName(),grade);
+        grademap.put(course.getName(),grade);   //we put course and grade into the hashmap
 
-        GradeAdjustment(course,this,grade);
+        GradeAdjustment(course,this,grade); //then we send it to this method to calculate its effect on GPA
     }
     public HashMap getGrades(){
         return grademap;
     }
 
+    private int totalcredit=0;
+
+    public int getTotalcredit() {
+        return totalcredit;
+    }
+
+    private double weight=0.0;
+    void GradeAdjustment(Course c,Student std,String grade)
+    {
+        totalcredit+=c.getCredit();
+        weight+=std.CalculateWeight(c.getCredit(),grade);
+
+        GPA=(weight/totalcredit);
+        System.out.println(GPA);
+    }
     public double CalculateWeight(int credit, String grade){    //to calculate how much a letter grade effects GPA
         double n=0.0;
 
@@ -73,33 +86,17 @@ public abstract class Student {
         return n;
     }
 
-   private int totalcredit=0;
-
-    public int getTotalcredit() {
-        return totalcredit;
-    }
-
-    private double weight=0.0;
-    void GradeAdjustment(Course c,Student std,String grade)
-    {
-        totalcredit+=c.getCredit();
-        weight+=std.CalculateWeight(c.getCredit(),grade);
-
-        GPA=(weight/totalcredit);
-        System.out.println(GPA);
-    }
-
     public double getGPA(){
         return this.GPA;
     }
 
-    private HashMap<String, Integer> course_attendance = new HashMap<>();
 
+    //methods about attendance of a course
     public void setAttendance(Course course,Integer attendance){
         course_attendance.put(course.getName(),attendance);
         FailOfAttendance(course,attendance);
     }
-    public HashMap getAttendence(){
+    public HashMap getAttendance(){
         return course_attendance;
     }
 

@@ -1,25 +1,25 @@
-import java.util.List;
+import java.util.*;
 public class UndergradStudent extends Student {
-    List <UndergradCourse> ugcourses;   //Creating a list of Undergrad Courses since undergraduate students can only take undergraduate courses
+    List <UndergradCourse> ugcourses=new ArrayList<>();   //Creating a list of Undergrad Courses since undergraduate students can only take undergraduate courses
     UndergradStudent(String name,long id,int year)
     {
         super(name, id, year);
     }
 
 
-
-    public List<UndergradCourse> getUndgradCourses()
-    {
-        return ugcourses;
-    }
-    public void setUndgradCourses(List<UndergradCourse> s)
-    {
-        for(UndergradCourse course :s){     //checking if the course has reached its max number of students
+    public void addUndgradCourse(UndergradCourse course){
+        try{
             if( course.getI()==course.getidArr().length)
-                s.remove(course);   //if the course is full, we remove it from student's temporary course list.
-        }
-        this.ugcourses =s;
+                System.out.println("This course is full so can not be added to student's course list.");
+
+            if(ugcourses.contains(course))
+                System.out.println("Student already takes this course.");
+
+            else
+                this.ugcourses.add(course);
+        }catch(NullPointerException ex){System.out.println("Student takes a non-existent course.");}
     }
+    public List<UndergradCourse> getUndgradCourses() {return ugcourses;}
 
     /*
      * Override the getStudentCourses function as this is

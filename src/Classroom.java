@@ -1,9 +1,9 @@
 class Classroom extends Area{
     private int classNo;
-    Classroom(String name,String openbetween,String usage,int classNo)
+    Classroom(String name,String openbetween,String usage,int classno)
     {
         super(name,openbetween,usage);
-        setClassNo(classNo);
+        setClassNo(classno);
     }
 
     public void setClassNo(int classNo) {this.classNo = classNo;}

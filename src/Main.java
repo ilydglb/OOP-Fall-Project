@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Main {
     public static void main(String[] args)
     {
@@ -8,10 +6,7 @@ public class Main {
         UndergradCourse co1=new UndergradCourse("Math",101,6,4);
         UndergradCourse co2=new UndergradCourse("Physics",103,6,4);
 
-        List <UndergradCourse> std1courses=new ArrayList<>();   //creating an ArrayList for courses of std1 (and below, adding the courses to this list)
-        std1courses.add(co1);
-
-        std1.setUndgradCourses(std1courses);    //sending this course list to std1's setCourses method to set student's course list
+        std1.addUndgradCourse(co1);     //adding co1 to std1's course list
 
         co1.setstdID(std1.getID());  //adding std1's id to co1
         co1.getstdIDs();    //printing ids of students who is taking co1
@@ -25,7 +20,7 @@ public class Main {
         System.out.println(std1.getGrades());   //student fails the class even if he/she got high grades on exams
 
 
-        std1courses.add(co2);
+        std1.addUndgradCourse(co2);     //adding co2 to std1's course list
         co2.setstdID(std1.getID());  //adding std1's id to co2
         co2.getstdIDs();    //printing ids of students who is taking co2
         std1.setGrade(co2,"BA");
@@ -54,7 +49,8 @@ public class Main {
 
         //Creating a new office and assigning that office to a lecturer.
         //This data is hold in both objects.
-        LecturerOffice lecOf2= new LecturerOffice("Lecturer Office 1","9.00-17.00","lecturer office",lec2,45);
+
+        LecturerOffice lecOf2= new LecturerOffice("Lecturer Office 1","9.00-17.00","lecturer office",lec1,45);
 
         /*
          * Creating a lecturer and setting that lecturer as the
@@ -89,6 +85,21 @@ public class Main {
         newSociety.removeMember(std1);
 
         lec2.setTitle("Dr.");   //we set a title for lec2
+
+        sec1.DropUndgradCourse(std1,co1);   //When a student wants to drop a course, secretary checks if it is possible
+
+        co1.addToTopic("Unit 1: Functions",lec1);   //adding a topic to a course
+        System.out.println(co1.getTopics());
+
+        UndergradCourse testcourse=null;
+        std1.addUndgradCourse(testcourse);     //attempting to add co1 to std1's course list
+                                                //this will give a null pointer exception inside UndergradStudent class since the course is null.
+
+        std1.addUndgradCourse(co1);     //attempting to add a course that the student is already taking
+
+        sec1.appointLecToCourse(lec1,testcourse);  //attempting to appoint a lecturer to a null course
+
+
 
     }
 }

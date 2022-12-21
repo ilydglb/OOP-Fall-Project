@@ -4,10 +4,10 @@ public class Area {
     private String usage;
     CleaningStaff cs;   //cleaning staff who is responsible from cleaning the area
 
-    Area(String name,String openbetween,String usage){
-        setName(name);
-        setOpenbetween(openbetween);
-        setUsage(usage);
+    Area(String nme,String open,String use){
+        setName(nme);
+        setOpenbetween(open);
+        setUsage(use);
     }
 
     public void setName(String name) {this.name = name;}
