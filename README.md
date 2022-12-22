@@ -30,10 +30,10 @@ Course class:
     +
 
 Student class:
-    -societies: ArrayList       (zaten direkt başka bi classa bağlı)
-    -courseattendance: HashMap  (lecturer StudentAttendance() da kullanıldı)
-    +FailOfAttendance()         (Lecturerda kulanıldı)
-    +
+- societies: ArrayList       *(zaten direkt başka bi classa bağlı)*
+- courseattendance: HashMap  (lecturer StudentAttendance() da kullanıldı)
++ FailOfAttendance()         (Lecturerda kulanıldı)
++ 
 
 Lecturer class:
     -title: String
