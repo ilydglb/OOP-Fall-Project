@@ -3,39 +3,45 @@ public class Main {
     {
         UndergradStudent std1 = new UndergradStudent("ilayda golbasi", 201180026, 2);   //creating student object for an undergrad student as an example
 
+        Lecturer lec1=new Lecturer("Aybike Dilbaz",1111,5);
+
         UndergradCourse co1=new UndergradCourse("Math",101,6,4);
         UndergradCourse co2=new UndergradCourse("Physics",103,6,4);
+
+        Secretary sec1=new Secretary(123,"secretary","9.00-17.00",10);
+
+        //Lecturers can be added, removed and replaced from a course by secretary.
+        sec1.appointLecToCourse(lec1,co1);
 
         std1.addUndgradCourse(co1);     //adding co1 to std1's course list
 
         co1.setstdID(std1.getID());  //adding std1's id to co1
         co1.getstdIDs();    //printing ids of students who is taking co1
 
-        std1.setGrade(co1,"AA");
-        System.out.println(std1.getGPA());
-        System.out.println(std1.getGrades());       //printing grades of the student (as a hashmap)
+        lec1.StudentAttendance(std1,co1,55);  //lecturer of the course setting a student's attendance
+        lec1.StudentGrading(std1,co1,"AA");    //lecturer of co1 setting student's grade
 
-        std1.setAttendance(co1,20);     //setting a low attandence for co1
+        System.out.println(std1.getGPA());
+        System.out.println(std1.getGradeMap());       //printing grades of the student (as a hashmap)
+
+
         System.out.println(std1.getGPA());       //as can be seen here, this also updates grades and GPA
-        System.out.println(std1.getGrades());   //student fails the class even if he/she got high grades on exams
+        System.out.println(std1.getGradeMap());   //student fails the class even if he/she got high grades on exams
 
 
         std1.addUndgradCourse(co2);     //adding co2 to std1's course list
         co2.setstdID(std1.getID());  //adding std1's id to co2
         co2.getstdIDs();    //printing ids of students who is taking co2
-        std1.setGrade(co2,"BA");
+        lec1.StudentGrading(std1,co2,"BA");
 
 
         System.out.println(std1.getGPA());  //printing GPA again to see the change
-        System.out.println(std1.getGrades());
+        System.out.println(std1.getGradeMap());
 
 
 
-        Lecturer lec1=new Lecturer("Aybike Dilbaz",1111,5);
-        Secretary sec1=new Secretary(123,"secretary","9.00-17.00",10);
 
-        //Lecturers can be added, removed and replaced from a course by secretary.
-        sec1.appointLecToCourse(lec1,co1);
+
 
         Lecturer lec2=new Lecturer("Dsfsd Ysdsf",1112,10);
 
@@ -99,7 +105,8 @@ public class Main {
 
         sec1.appointLecToCourse(lec1,testcourse);  //attempting to appoint a lecturer to a null course
 
-
+        Accountant ac1=new Accountant(544566,"accounting","9-17",5);    //creating an Accountant object
+        ac1.CalculateStaffSalary(cs1);      //this accountant is calculating a staff's salary
 
     }
 }

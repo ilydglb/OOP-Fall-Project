@@ -14,6 +14,8 @@ public class Lecturer {
     private int yearOfService;  //we use this attribution when calculating salary
     private int monthly_salary=14000;   //base monthly salary
 
+    private int annualDayOff=30;        //total off days that a lecturer can have in a year
+
     Lecturer(String ns, long id,int yearOfService){
         name_surname = ns;
         this.id = id;
@@ -46,6 +48,17 @@ public class Lecturer {
     public void setYearOfService(int yearOfService) {this.yearOfService = yearOfService;}
 
     public int getYearOfService() {return yearOfService;}
+
+    public int getMonthly_salary(){return monthly_salary;}
+
+    public void addTosalary(int s){
+        monthly_salary+=s;
+    }
+
+    public int getAnnualDayOff() {return annualDayOff;}
+    public void decreaseDay(int offdaycount){
+        annualDayOff-=offdaycount;
+    }
 
     public void giveGraduationCertificate(Student std) {
         try {
@@ -84,35 +97,22 @@ public class Lecturer {
         return numofcourses;
     }
 
+    public void StudentAttendance(Student std,Course course, int attendance){
+        if(this.getUndgradCourses().contains(course)||this.getGradCourses().contains(course))   //if this lecturer gives the course, he/she can add a grade
+            std.getAttendance().put(course.getName(),attendance);
 
-    public void Calculatemonthly_salary(){
-        if(this.title.equals("Dr.")){
-            monthly_salary+=2500;
+        else
+            System.out.println("This lecturer does not give the course.");
+    }
+    public void StudentGrading(Student std,Course course,String grade){
+        if(this.getUndgradCourses().contains(course)||this.getGradCourses().contains(course)) {  //if this lecturer gives the course, he/she can add a grade
 
-            if(yearOfService>=6&&yearOfService<9)
-                monthly_salary+=200;
-            if(yearOfService>=9)
-                monthly_salary+=300;
+            std.FailOfAttendance(course);        //first, checking if student fails because lack of attendance
+            std.getGradeMap().put(course.getName(), grade);   //we put course and grade into the hashmap
+
+            std.GradeAdjustment(course, std, grade); //then we send it to this method to calculate its effect on GPA
         }
-        if(this.title.equals("ASSOC")){ //abbreviation of associate professor
-            monthly_salary+=3000;
-
-            if(yearOfService>=12&&yearOfService<15)
-                monthly_salary+=400;
-            if(yearOfService>=15&&yearOfService<25)
-                monthly_salary+=500;
-            if(yearOfService>=25)
-                monthly_salary+=600;
-        }
-        if(this.title.equals("Prof.")){
-            monthly_salary+=5500;
-
-            if(yearOfService>=15)
-                monthly_salary+=2000;
-            if(yearOfService>=25)
-                monthly_salary+=3000;
-        }
-        
-    } //these numbers are imaginary
-
+        else
+            System.out.println("This lecturer does not give the course.");
+    }
 }

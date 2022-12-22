@@ -25,29 +25,16 @@ public abstract class Staff {
 
     public void setYearOfService(int yearOfService) {this.yearOfService = yearOfService;}
     public int getYearOfService() {return yearOfService;}
-
-
-    public void CalculateSalary(){
-        if(this instanceof CleaningStaff){
-            this.monthly_salary+=yearOfService*200;
-        }
-        if(this instanceof TechnicalStaff){
-            this.monthly_salary+=yearOfService*220;
-        }
-        if(this instanceof Secretary){
-            this.monthly_salary+=yearOfService*250;
-        }
-    }
-
     public int getSalary() {
         return monthly_salary;
     }
 
-    public void DecreaseDayOff(){       //when a staff takes a day off we subtract a day if there are any
-        if(annualDayOff>0)
-            annualDayOff--;
-        else
-            System.out.println("There are no off days available");
+    public void addToSalary(int s){
+        monthly_salary+=s;
     }
     public int getAnnualDayOff() {return annualDayOff;}
+
+    public void decreaseDay(int offdaycount){
+        annualDayOff-=offdaycount;
+    }
 }

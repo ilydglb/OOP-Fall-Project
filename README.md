@@ -24,38 +24,41 @@ Area class has a CleaningStaff variable that is responsible for cleaning the are
 ## Extra attributes and methods:
 
 Course class:
-
-    -total_course_hour_in_aweek: int
-    -topics: ArrayList
+    -total_course_hour_in_aweek: int        (Studentta kullanıldı)
+    -topics: ArrayList                      (Lecturerda topic ekleme silme işlemi yapıldı)
     +
     +
 
 Student class:
-
-    -societies: ArrayList
-    -courseattendance: HashMap
-    +FailOfAttendance()
+    -societies: ArrayList       (zaten direkt başka bi classa bağlı)
+    -courseattendance: HashMap  (lecturer StudentAttendance() da kullanıldı)
+    +FailOfAttendance()         (Lecturerda kulanıldı)
     +
 
 Lecturer class:
-
-    -isHeadOfDepartment: boolean
     -title: String
     -yearOfService: int
     -monthly_salary: int
-    +Calculatemonthly_salary()
-    +
+    -yearOfService
+    +addTosalary()
+    +decreaseDay()
+    +StudentAttendance()
+    +StudentGrading()
 
 Staff class:
-
     -monthly_salary:int
     -yearOfService: int
     -annualDayOff: int
-    +CalculateSalary()
-    +DecreaseDayOff()
+    +addTosalary()
+    +decreaseDay()
 
-Secretay class (BONUS):
+Area class:
+    -CleaningStaff cs
+    -
+    +
+    +
 
+Secretary class (BONUS):
     +DropUndGradCourse()
     +DropGradCourse()
     

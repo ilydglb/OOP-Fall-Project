@@ -15,12 +15,12 @@ public abstract class Course {
     private List<String> topics = new ArrayList<>();
 
 
-    Course(String name,long course_code,int credit,int hour)  //When creating a course through the system, it will be created together with the course code, name, and credit information.
+    Course(String nme,long cc,int crdt,int hour)  //When creating a course through the system, it will be created together with the course code, name, and credit information.
     {
-        this.name=name;
-        this.course_code=course_code;
-        this.credit=credit;
-        total_course_hour_in_aweek=hour;
+        setName(nme);
+        setCourse_code(cc);
+        setCredit(crdt);
+        setCourseHour(hour);
     }
 
 
@@ -52,14 +52,14 @@ public abstract class Course {
     }
 
     public List<String> getTopics() {return topics;}
-    protected void addToTopic(String topic, Lecturer lect){
+    public void addToTopic(String topic, Lecturer lect){
         if(lect == this.lecturer){
             this.topics.add(topic);
         }else{
             System.out.println("This action cannot be performed by any other than this course's lecturer.");
         }
     }
-    protected void removeFromTopic(int idx, Lecturer lect){
+    public void removeFromTopic(int idx, Lecturer lect){
         if(lect == this.lecturer){
             this.topics.remove(idx);
         }else{

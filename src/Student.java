@@ -37,14 +37,10 @@ public abstract class Student {
         return "name surname: "+ name_surname + " id: " + id;
     }
 
-    public void setGrade(Course course,String grade){
-        grademap.put(course.getName(),grade);   //we put course and grade into the hashmap
-
-        GradeAdjustment(course,this,grade); //then we send it to this method to calculate its effect on GPA
-    }
-    public HashMap getGrades(){
+    public HashMap getGradeMap(){
         return grademap;
     }
+    //there is no set method for grademap because only the lecturer of the course can set a grade
 
     private int totalcredit=0;
 
@@ -91,18 +87,15 @@ public abstract class Student {
     }
 
 
-    //methods about attendance of a course
-    public void setAttendance(Course course,Integer attendance){
-        course_attendance.put(course.getName(),attendance);
-        FailOfAttendance(course,attendance);
-    }
+
     public HashMap getAttendance(){
         return course_attendance;
     }
+    //there is no set method for course_attendance because only the lecturer of the course can set attendance
 
-    public void FailOfAttendance(Course course,Integer attendance){
-        if(attendance < course.getCourseHour()*14*70/100)
-            grademap.replace(course.getName(), "FF");
+    public void FailOfAttendance(Course course){
+        if(course_attendance.get(course.getName()) < course.getCourseHour()*14*70/100)
+            grademap.put(course.getName(), "FF");
         GradeAdjustment(course,this,"FF");
     }
 
