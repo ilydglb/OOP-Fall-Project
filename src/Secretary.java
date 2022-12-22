@@ -6,7 +6,7 @@ public class Secretary extends Staff{
 
 
     /*
-     * Lecturers can give up to 9 courses so we check for
+     * Lecturers can give up to 9 courses, so we check for
      * those conditions and if met, setting the lecturer as the
      * course's lecturer.
      */
@@ -63,6 +63,8 @@ public class Secretary extends Staff{
             System.out.println(ex.getMessage());    //student or course might be non-existent
         }
     }
+
+
 }
 
 

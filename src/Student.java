@@ -5,9 +5,10 @@ public abstract class Student {
     private long id;
     private int year;
     private double GPA = 0.0;
-    private List <Society> societies = new ArrayList<>();   //Societies the student is a part of
-    private HashMap<String, String> grademap = new HashMap<>(); //   //Creating a hashmap to store course names and its grades together as key/value pairs
-    private HashMap<String, Integer> course_attendance = new HashMap<>();
+    private HashMap<String, String> grademap = new HashMap<>(); //Creating a hashmap to store course names and its grades together as key/value pairs
+                                                                //Check "Another note" in ReadMe
+    private HashMap<String, Integer> course_attendance = new HashMap<>();   //hashmap for student's attendances for courses he/she takes
+    private HashMap<Society, String> society_duty = new HashMap<>();   //hashmap for student's duties of societies he/she is a member of.
 
 
     Student(String name,long id,int year)
@@ -26,9 +27,8 @@ public abstract class Student {
     public int getYear(){
         return this.year;
     }
-    public List getsocieties(){
-        return this.societies;
-    }
+
+
 
     //There are no set methods because students' basic information cannot be edited.
     public String toString()    //overriding toString method of class Object to get name_surname etc. instead of getting the hash code
@@ -40,7 +40,7 @@ public abstract class Student {
     public HashMap getGradeMap(){
         return grademap;
     }
-    //there is no set method for grademap because only the lecturer of the course can set a grade
+    //there is no set method for grademap here, because only the lecturer of the course can set a grade
 
     private int totalcredit=0;
 
@@ -86,12 +86,10 @@ public abstract class Student {
         return this.GPA;
     }
 
-
-
     public HashMap getAttendance(){
         return course_attendance;
     }
-    //there is no set method for course_attendance because only the lecturer of the course can set attendance
+    //there is no set method for course_attendance here, because only the lecturer of the course can set attendance
 
     public void FailOfAttendance(Course course){
         if(course_attendance.get(course.getName()) < course.getCourseHour()*14*70/100)
@@ -99,8 +97,13 @@ public abstract class Student {
         GradeAdjustment(course,this,"FF");
     }
 
+    public HashMap getSocietyDuties(){
+        return society_duty;
+    }   //no set method because we add duties inside Society class.
+
     //abstract methods which is implemented in child classes of Student (which are GradStudent and UndergradStudent)
     public abstract void getStudentCourses();
     public abstract int countCourses();
+
 
 }

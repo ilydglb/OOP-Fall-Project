@@ -115,4 +115,20 @@ public class Lecturer {
         else
             System.out.println("This lecturer does not give the course.");
     }
+
+    public void addCourseTopic(String topic, Course co){
+        if(co.getLecturer()==this){
+            co.getTopics().add(topic);  //adding a topic into the course's topic list
+        }else{
+            System.out.println("This action cannot be performed by any other than this course's lecturer.");
+        }
+    }
+    public void removeCourseTopic(String topic, Course co){
+        if(co.getLecturer()==this){
+            co.getTopics().remove(topic);
+        }else{
+            System.out.println("This action cannot be performed by any other than this course's lecturer.");
+        }
+    }
+
 }

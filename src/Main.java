@@ -88,13 +88,14 @@ public class Main {
         Society newSociety = new Society("AI Society", std3,testLect);
         newSociety.addMember(std1);
         System.out.println(newSociety.getMembers());
-        newSociety.removeMember(std1);
+        newSociety.AssignMemberDuty(std1,"project manager");   //we assign a duty for a member
+        System.out.println(std1.getSocietyDuties());
 
         lec2.setTitle("Dr.");   //we set a title for lec2
 
         sec1.DropUndgradCourse(std1,co1);   //When a student wants to drop a course, secretary checks if it is possible
 
-        co1.addToTopic("Unit 1: Functions",lec1);   //adding a topic to a course
+        lec1.addCourseTopic("Unit 1: Functions",co1);   //adding a topic to a course
         System.out.println(co1.getTopics());
 
         UndergradCourse testcourse=null;

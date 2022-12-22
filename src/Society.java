@@ -8,6 +8,7 @@ public class Society {
     Society(String sname, UndergradStudent lead, Lecturer supervisor){
         setSocietyName(sname);
         setLeader(lead);
+        addMember(lead);    //we add leader to members too
         setSocietySupervisor(supervisor);
     }
 
@@ -27,10 +28,13 @@ public class Society {
             if(members.contains(memberToBe))       //if members does contain the member to be
                 System.out.println("The student is already a member.");
 
-            else
+            else {
                 this.members.add(memberToBe);           //adding member to be to the society
-                memberToBe.getsocieties().add(this);    //adding the society to the member
-
+                if (memberToBe == leader)               //if member to be added is the leader
+                    memberToBe.getSocietyDuties().put(this, "leader");
+                else
+                    memberToBe.getSocietyDuties().put(this, "no duty");    //adding the society to the member with no duty as default
+            }
         }catch (NullPointerException ex){
             System.out.println("Attempt to add a non-existent student.");
         }
@@ -46,4 +50,17 @@ public class Society {
         }
 
     }
+
+    public void AssignMemberDuty(Student std, String duty){
+        if(members.contains(std)) {
+            for (Object key : std.getSocietyDuties().keySet()) {
+                if(key==this)
+                    std.getSocietyDuties().replace(key, duty);
+            }
+        }
+        else
+            System.out.println("This student is not a member.");
+    }
+
+
 }

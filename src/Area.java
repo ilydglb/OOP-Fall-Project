@@ -4,6 +4,8 @@ public class Area {
     private String usage;
     CleaningStaff cs;   //cleaning staff who is responsible from cleaning the area
 
+
+
     Area(String nme,String open,String use){
         setName(nme);
         setOpenbetween(open);
@@ -22,9 +24,7 @@ public class Area {
 
     public String getUsage() {return usage;}
 
-    public void setCS(CleaningStaff cs){
-        this.cs=cs;
-    }
+    public void setCS(CleaningStaff cs){this.cs=cs;}
 
     public CleaningStaff getCs() {return cs;}
 }

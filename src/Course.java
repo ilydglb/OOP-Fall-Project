@@ -52,20 +52,6 @@ public abstract class Course {
     }
 
     public List<String> getTopics() {return topics;}
-    public void addToTopic(String topic, Lecturer lect){
-        if(lect == this.lecturer){
-            this.topics.add(topic);
-        }else{
-            System.out.println("This action cannot be performed by any other than this course's lecturer.");
-        }
-    }
-    public void removeFromTopic(int idx, Lecturer lect){
-        if(lect == this.lecturer){
-            this.topics.remove(idx);
-        }else{
-            System.out.println("This action cannot be performed by any other than this course's lecturer.");
-        }
-    }
 
     private int i=0;    //initial value of the idArr's index
 
