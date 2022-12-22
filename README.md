@@ -29,7 +29,7 @@ Course class:
     +
     +
 
-### Student class:
+#### Student class:
 - societies: ArrayList       *(zaten direkt başka bi classa bağlı)*
 - courseattendance: HashMap  (lecturer StudentAttendance() da kullanıldı)
 + FailOfAttendance()         (Lecturerda kulanıldı)
