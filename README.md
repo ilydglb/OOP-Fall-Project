@@ -26,8 +26,12 @@ Abstract Staff class has five inheritors. And Area class has three inheritors.
 (used in Student class to determine whether student fails because lack of attendance)
 - topics: ArrayList                      
 (used in Lecturer class to add or remove topics)
-+
-+
++CourseforProject()
+(used in Project class, setting project's course)
++AssignUgStdToProj()
+(used in Project class)
++AssignGradStdToProj()
+(used in Project class)
 
 #### Student class:
 - course_attendance: HashMap            
@@ -35,7 +39,7 @@ Abstract Staff class has five inheritors. And Area class has three inheritors.
 - society_duty: HashMap                
 (used in Society class, assigning duties to members)
 + FailOfAttendance()                    
-(in Lecturer class when grading a student, lecturer has to control whether a student fails because lac of attendance)
+(in Lecturer class when grading a student, lecturer has to control whether a student fails because lack of attendance)
 + toString()                            
 (used in GradStudent and UndergradStudent classes)
 
@@ -70,12 +74,16 @@ Abstract Staff class has five inheritors. And Area class has three inheritors.
 (used in Accountant class, calculating staff's off days left)
  
 #### Area class:
-- CleaningStaff cs                    
+- cs: Cleaningstaff                  
 (association with CleaningStaff class)
--
-+
-+
-
+- temporaryOvertime: Date
+(used in TechnicalStaff class)
++ initiateTemporaryOvertime()
+(used in TechnicalStaff class)
++ discardTemporaryOvertime()
+(used in TechnicalStaff class)
++ IsInOvertime()
+(used in TechnicalStaff class)
 
 ## Some exceptions you should check:
 

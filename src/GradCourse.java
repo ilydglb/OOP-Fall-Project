@@ -5,4 +5,10 @@ public class GradCourse extends Course{
       super(name,course_code,credit,hour);
     }
 
+    public void setLecturer(Lecturer lecturer,Secretary sec)
+    {
+        if(sec.appointLecToGCourse(lecturer,this))
+            this.lecturer = lecturer;
+    }
+
 }

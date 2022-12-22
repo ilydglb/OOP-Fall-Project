@@ -4,4 +4,10 @@ public class UndergradCourse extends Course {
         super(name,course_code,credit,hour);
     }
 
+    public void setLecturer(Lecturer lecturer,Secretary sec)
+    {
+       if(sec.appointLecToUgCourse(lecturer,this))
+        this.lecturer = lecturer;
+    }
+
 }

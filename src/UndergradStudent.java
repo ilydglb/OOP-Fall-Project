@@ -23,7 +23,7 @@ public class UndergradStudent extends Student {
 
     /*
      * Override the getStudentCourses function as this is
-     * different than the one from super class'
+     * different from the one from super class'
     */
     @Override
     public void getStudentCourses()

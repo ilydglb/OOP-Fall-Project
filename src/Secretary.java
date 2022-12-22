@@ -10,18 +10,21 @@ public class Secretary extends Staff{
      * those conditions and if met, setting the lecturer as the
      * course's lecturer.
      */
-    public void appointLecToCourse(Lecturer lec, UndergradCourse ugcourse)
+    public boolean appointLecToUgCourse(Lecturer lec, UndergradCourse ugcourse)
     {
         try{
-            if(lec.countCourses()>9)
+            if(lec.countCourses()>9){
                 System.out.println("This lecturer accessed to max course number.");
+                return false;
+            }
 
-            if(lec.getUndgradCourses().contains(ugcourse))
+            if(lec.getUndgradCourses().contains(ugcourse)) {
                 System.out.println("Lecturer already gives this course.");
-
+                return false;
+            }
             else{
                 lec.getUndgradCourses().add(ugcourse);
-                ugcourse.setLecturer(lec);
+                return true;
             }
         }
         catch(NullPointerException ex)   //lec or ugcourse might be null
@@ -29,12 +32,45 @@ public class Secretary extends Staff{
             if(lec==null)System.out.println("Attempt to appoint a non-existent lecturer.");
             if(ugcourse==null)System.out.println("Attempt to appoint a non-existent course");
         }
+        return false;
+    }
+
+    public boolean appointLecToGCourse(Lecturer lec, GradCourse gcourse)
+    {
+        try{
+            if(lec.countCourses()>9){
+                System.out.println("This lecturer accessed to max course number.");
+                return false;
+            }
+
+            if(lec.getGradCourses().contains(gcourse)) {
+                System.out.println("Lecturer already gives this course.");
+                return false;
+            }
+            else{
+                lec.getGradCourses().add(gcourse);
+                return true;
+            }
+
+        }
+        catch(NullPointerException ex)   //lec or gcourse might be null
+        {
+            if(lec==null)System.out.println("Attempt to appoint a non-existent lecturer.");
+            if(gcourse==null)System.out.println("Attempt to appoint a non-existent course");
+        }
+        return false;
     }
 
 
-    public void removeLecFromCourse(Lecturer lec, UndergradCourse ugcourse)
+    public void removeLecFromUgCourse(Lecturer lec, UndergradCourse ugcourse)
     {
         try{lec.getUndgradCourses().remove(ugcourse);}
+        catch(NullPointerException ex) {System.out.println(ex.getMessage());}         //same exception as above
+    }
+
+    public void removeLecFromGCourse(Lecturer lec, GradCourse ugcourse)
+    {
+        try{lec.getGradCourses().remove(ugcourse);}
         catch(NullPointerException ex) {System.out.println(ex.getMessage());}         //same exception as above
     }
 

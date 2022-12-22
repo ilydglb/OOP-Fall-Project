@@ -4,7 +4,8 @@ public abstract class Course {
     private long course_code;
     private int credit;
     private Classroom  location;
-    private Lecturer lecturer;
+
+    protected Lecturer lecturer;
     private String notes;           //notes about course (only the lecturer of the course can add notes)
     private long[] idArr=new long[100];     //to store students' ids taking the course (100 students max can take the course)
     private int total_course_hour_in_aweek;    /*
@@ -39,7 +40,7 @@ public abstract class Course {
     }   //setting course's location
     public Classroom getLocation() {return location;}
     public Lecturer getLecturer(){return lecturer;}
-    public void setLecturer(Lecturer lecturer) {this.lecturer = lecturer;}
+    //setting is done in child classes and Secretary
     public void setCourseHour(int ch){
         total_course_hour_in_aweek=ch;
     }
@@ -88,6 +89,34 @@ public abstract class Course {
             System.out.println("This instructor is not the lecturer of this course.");
 
     }
+
+    public boolean CourseforProject(Project p,Laboratory lab){
+        if(lab.getCourse()==this)
+            return true;
+        return false;
+    }
+
+    public boolean AssignUgStdToProj(UndergradStudent std,Project project){
+
+            if(std.getUndgradCourses().contains(project.getCo()))
+                return true;
+            else
+                System.out.println("This student does not take this project's course.");
+
+        return false;
+    }
+
+    public boolean AssignGradStdToProj(GradStudent std,Project project){
+            if(std.getGradCourses().contains(project.getCo()))
+                return true;
+            else
+                System.out.println("This student does not takes this project's course.");
+
+        return false;
+    }
+
+
+
 
 
 }

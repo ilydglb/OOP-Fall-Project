@@ -35,9 +35,7 @@ public class Society {
                 else
                     memberToBe.getSocietyDuties().put(this, "no duty");    //adding the society to the member with no duty as default
             }
-        }catch (NullPointerException ex){
-            System.out.println("Attempt to add a non-existent student.");
-        }
+        }catch (NullPointerException ex){System.out.println("Attempt to add a non-existent student.");}
     }
     public void removeMember(UndergradStudent memberToBeDeleted){
         try {

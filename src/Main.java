@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Main {
     public static void main(String[] args)
     {
@@ -11,7 +13,7 @@ public class Main {
         Secretary sec1=new Secretary(123,"secretary","9.00-17.00",10);
 
         //Lecturers can be added, removed and replaced from a course by secretary.
-        sec1.appointLecToCourse(lec1,co1);
+        sec1.appointLecToUgCourse(lec1,co1);
 
         std1.addUndgradCourse(co1);     //adding co1 to std1's course list
 
@@ -75,7 +77,7 @@ public class Main {
 
         CleaningStaff cs1=new CleaningStaff(123,"cleaning dining halls and library","9.00-17.00",10);  //creating a CleaningStaff object
 
-        Area library=new Area("(birinin ismi) Library","7/24","main library"); //creating an Area object as an example
+        Area library=new Area("(birinin ismi) Library","8.00-17.30","main library"); //creating an Area object as an example
         library.setCS(cs1);     //setting the object who is responsible from cleaning the library
 
         CleaningStaff cs2=new CleaningStaff(124,"cleaning classrooms","9.00-17.00",5);    //creating another CleaningStaff object
@@ -85,11 +87,10 @@ public class Main {
 
         UndergradStudent std3 = new UndergradStudent("Ahmet Ergül",118080045,2);
         Lecturer testLect = new Lecturer("Şadi Evren Şeker", 654654654,5);
-        Society newSociety = new Society("AI Society", std3,testLect);
+        Society newSociety = new Society("Cinema Society", std3,testLect);
         newSociety.addMember(std1);
         System.out.println(newSociety.getMembers());
         newSociety.AssignMemberDuty(std1,"project manager");   //we assign a duty for a member
-        System.out.println(std1.getSocietyDuties());
 
         lec2.setTitle("Dr.");   //we set a title for lec2
 
@@ -104,10 +105,16 @@ public class Main {
 
         std1.addUndgradCourse(co1);     //attempting to add a course that the student is already taking
 
-        sec1.appointLecToCourse(lec1,testcourse);  //attempting to appoint a lecturer to a null course
+        sec1.appointLecToUgCourse(lec1,testcourse);  //attempting to appoint a lecturer to a null course
 
         Accountant ac1=new Accountant(544566,"accounting","9-17",5);    //creating an Accountant object
         ac1.CalculateStaffSalary(cs1);      //this accountant is calculating a staff's salary
+
+
+        Laboratory lab1=new Laboratory("Interactive Audio Lab","9.00-17.00","graduate course lab",co1);
+        Project proj1=new Project("Deep Learning Tools for Audacity","Toward an Ecosystem of Artificial-intelligence-powered Music Production",lab1,co1);
+        proj1.addUgStudent(std1);
+        proj1.addUgStudent(std3);   //std3 does not take co1, so can not be a part of proj1
 
     }
 }
