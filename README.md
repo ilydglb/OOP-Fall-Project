@@ -40,11 +40,16 @@ Abstract Staff class has five inheritors. And Area class has three inheritors.
 (used in Accountant class, calculating lecturer's salary)
 - monthly_salary: int                  
 (used in Accountant class, calculating lecturer's salary)
-- annualDayOff: int                     (used in Accountant class, calculating lecturer's off days)
-+ addTosalary()                          (used in Accountant class, calculating lecturer's salary)
-+ decreaseDay()                         (used in Accountant class, calculating lecturer's off days left)
-+ StudentAttendance()                   (used when calculating a Student object's attendance)
-+ StudentGrading()                      (used when grading a Student object)
+- annualDayOff: int                     
+(used in Accountant class, calculating lecturer's off days)
++ addTosalary()                          
+(used in Accountant class, calculating lecturer's salary)
++ decreaseDay()                         
+(used in Accountant class, calculating lecturer's off days left)
++ StudentAttendance()                   
+(used when calculating a Student object's attendance)
++ StudentGrading()                      
+(used when grading a Student object)
 
 #### Staff class:
 - monthly_salary:int                    (used in Accountant class, calculating staff's salary)
