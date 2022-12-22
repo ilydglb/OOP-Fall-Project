@@ -34,11 +34,14 @@ Abstract Staff class has five inheritors. And Area class has three inheritors.
 + toString()                            (used in GradStudent and UndergradStudent classes)
 
 #### Lecturer class:
-- title: String                         (used in Accountant class, calculating lecturer's salary)
-- yearOfService: int                    (used in Accountant class, calculating lecturer's salary)
-- monthly_salary: int                   (used in Accountant class, calculating lecturer's salary)
+- title: String                         
+(used in Accountant class, calculating lecturer's salary)
+- yearOfService: int                    
+(used in Accountant class, calculating lecturer's salary)
+- monthly_salary: int                  
+(used in Accountant class, calculating lecturer's salary)
 - annualDayOff: int                     (used in Accountant class, calculating lecturer's off days)
-+ addTosalary                           (used in Accountant class, calculating lecturer's salary)
++ addTosalary()                          (used in Accountant class, calculating lecturer's salary)
 + decreaseDay()                         (used in Accountant class, calculating lecturer's off days left)
 + StudentAttendance()                   (used when calculating a Student object's attendance)
 + StudentGrading()                      (used when grading a Student object)
