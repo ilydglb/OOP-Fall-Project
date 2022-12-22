@@ -22,16 +22,22 @@ Abstract Staff class has five inheritors. And Area class has three inheritors.
 ## Extra attributes and methods:
 
 #### Course class:
-- total_course_hour_in_aweek: int        (used in Student class to determine whether student fails because lack of attendance)
-- topics: ArrayList                      (used in Lecturer class to add or remove topics)
+- total_course_hour_in_aweek: int        
+(used in Student class to determine whether student fails because lack of attendance)
+- topics: ArrayList                      
+(used in Lecturer class to add or remove topics)
 +
 +
 
 #### Student class:
-- course_attendance: HashMap            (used in Lecturer class StudentAttendance() method)
-- society_duty: HashMap                 (used in Society class, assigning duties to members)
-+ FailOfAttendance()                    (in Lecturer class when grading a student, lecturer has to control whether a student fails because lac of attendance)
-+ toString()                            (used in GradStudent and UndergradStudent classes)
+- course_attendance: HashMap            
+(used in Lecturer class StudentAttendance() method)
+- society_duty: HashMap                
+(used in Society class, assigning duties to members)
++ FailOfAttendance()                    
+(in Lecturer class when grading a student, lecturer has to control whether a student fails because lac of attendance)
++ toString()                            
+(used in GradStudent and UndergradStudent classes)
 
 #### Lecturer class:
 - title: String                         
@@ -52,14 +58,20 @@ Abstract Staff class has five inheritors. And Area class has three inheritors.
 (used when grading a Student object)
 
 #### Staff class:
-- monthly_salary:int                    (used in Accountant class, calculating staff's salary)
-- yearOfService: int                    (used in Accountant class, calculating staff's salary)
-- annualDayOff: int                     (used in Accountant class, calculating staff's off days)
-+ addTosalary()                         (used in Accountant class, calculating staff's salary)
-+ decreaseDay()                         (used in Accountant class, calculating staff's off days left)
+- monthly_salary:int                    
+(used in Accountant class, calculating staff's salary)
+- yearOfService: int                   
+(used in Accountant class, calculating staff's salary)
+- annualDayOff: int                     
+(used in Accountant class, calculating staff's off days)
++ addTosalary()                       
+(used in Accountant class, calculating staff's salary)
++ decreaseDay()                         
+(used in Accountant class, calculating staff's off days left)
  
 #### Area class:
-- CleaningStaff cs                    (association with CleaningStaff class)
+- CleaningStaff cs                    
+(association with CleaningStaff class)
 -
 +
 +
