@@ -35,13 +35,13 @@ public class Accountant extends Staff{
 
     public void CalculateStaffSalary(Staff st){
         if(st instanceof CleaningStaff){
-            this.addToSalary(st.getYearOfService()*200);
+            st.addToSalary(st.getYearOfService()*200);
         }
         if(st instanceof TechnicalStaff){
-            this.addToSalary(st.getYearOfService()*220);
+            st.addToSalary(st.getYearOfService()*220);
         }
         if(st instanceof Secretary){
-            this.addToSalary(st.getYearOfService()*250);
+            st.addToSalary(st.getYearOfService()*250);
         }
     }
 
